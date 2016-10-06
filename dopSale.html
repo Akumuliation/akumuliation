@@ -2,7 +2,6 @@
     #container {
         margin: 0 auto;
         min-width: 1000px;
-        z-index: 1000;
         padding: 20px 0;
         text-align: center;
     }
@@ -10,6 +9,10 @@
         text-align: center;
         text-transform: uppercase;
         font-size: 25px;
+        margin-bottom: 20px;
+    }
+    #container .col:nth-child(2), #container .col:last-child {
+        display: none;// Спрятаны столбцы
     }
     #container .col {
         width: 30%;
@@ -22,6 +25,9 @@
         border-top: none;
         box-shadow: 1px 1px 3px #ccc;
         padding-bottom: 30px;
+    }
+    #container .col:hover {
+        box-shadow: 1px 1px 18px 2px #ccc;
     }
     #container input {
         display: block;
@@ -158,13 +164,16 @@
         <a href="#" class="go_link">Читать о товаре</a>
     </div><!--
     --><div class="col">
-        <a href="#">
+        <a href="http://led-lampa.official1.in.ua/#specs">
             <img src="2.jpg" alt="foto">
             <span><i class="fa fa-search-plus" aria-hidden="true"></i></span>
             </a>
-        <h3>Описание товара, описание товара, описание товара, описание товара, описание товара</h3>
-        <div id="new_price">337 грн.&#160;</div>
-        <div id="old_price"> 555 грн.</div>
+        <h3>
+        СВЕТОДИОДНАЯ LED-ЛАМПА<br>
+        Ваша световая независимость от тарифов на свет.
+        </h3>
+        <div id="new_price">247 грн.&#160;</div>
+        <div id="old_price"> 494 грн.</div>
         <form action="zakaz.php" method="post">
             <input type="text" name="name" placeholder="Имя" required="">
             <input type="tel" data-mask="+38(999) 999 99 99" name="phone" required placeholder="Телефон*">
@@ -178,7 +187,7 @@
             <input type="hidden" name="utm_content"  value="<?= $_GET['utm_content'] ?>" />
             <input type="hidden" name="utm_campaign" value="<?= $_GET['utm_campaign'] ?>" />
         </form>
-        <a href="#" class="go_link">Читать о товаре</a>
+        <a href="http://led-lampa.official1.in.ua/#chto" class="go_link">Читать о товаре</a>
     </div><!--
     --><div class="col">
         <a href="#">
