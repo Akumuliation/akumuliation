@@ -1,9 +1,16 @@
+
 <style>
-    #container {
-        margin: 0 auto;
-        min-width: 1000px;
+    #row {
+        width: 100%;
+        position: absolute;
+        z-index: 9999;
+        top: 3040px;
         padding: 20px 0;
         text-align: center;
+    }
+    #container {
+        margin: 0 auto;
+        max-width: 1000px;
     }
     #title {
         text-align: center;
@@ -12,7 +19,7 @@
         margin-bottom: 20px;
     }
     #container .col:nth-child(2), #container .col:last-child {
-        display: none;// Спрятаны столбцы
+        display: none;
     }
     #container .col {
         width: 30%;
@@ -138,7 +145,8 @@
         color: grey;
     }
 </style>
-<div id="container">
+<div id="row">
+    <div id="container">
     <h2 id="title">С этим товаром также покупают:</h2>
     <div class="col">
         <a href="#">
@@ -212,4 +220,5 @@
         </form>
         <a href="#" class="go_link">Читать о товаре</a>
     </div>
+</div>
 </div>
