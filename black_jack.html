@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Black Jack</title>
+</head>
+<body>
+	<script>
+		"use strict";
+function getRandom(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+function getCards() {
+	var cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+	return cards[getRandom(0, cards.length - 1)];
+}
+function getSum(man) {
+	var sum = 0;
+	point:
+	for (var i = 0; i < man.length; i++) {
+		if(isNaN(man[i]) && man[i] !== 'A') {
+				sum = sum + 10;
+		}
+		if (!isNaN(man[i]) && man[i] !== 'A') {
+				sum = sum + parseInt(man[i]);
+		}
+	}
+	for (var i = 0; i < man.length; i++) {
+		if (man[i] == 'A') {
+			if (sum < 21) {
+				sum = sum + 11;	
+			} else {
+				sum = sum + 1;
+			}
+		}
+	}
+	return sum;
+}
+function getStatus() {
+	alert('Карты диллера: ' + dealer.join(' ') + '; ' + 'Карты игрока: ' + player.join(' '));
+	alert('Текущая сумма карт у игрока: ' + getSum(player));
+}
+var dealer = [getCards()];
+var player = [getCards(), getCards()];
+do{
+	if (getSum(player) > 21) {
+		alert('Перебор');
+		break;
+	} else {
+		if (getSum(player) === 21) {
+			alert('Black Jack');
+		break;
+		}
+	}
+	getStatus();
+	var answer = confirm('Играем еще?');
+	player.push(getCards());
+	if (answer == false) {
+		while(getSum(dealer) < 17) {
+	dealer.push(getCards());
+}
+if (getSum(dealer) < 21) {
+	alert('Перебор диллера))))');
+} else {
+		if (getSum(dealer) < getSum(player)) {
+			alert('Выиграш )))))');
+		} else {
+			if (getSum(dealer) === getSum(player)) {
+				alert('Ничия');
+			} else {
+				alert('Проиграш((((');
+			}
+			
+		}
+	}
+	}
+} while(answer == true)
+	</script>
+</body>
+</html>
