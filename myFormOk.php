@@ -30,6 +30,7 @@ action="http://official1.in.ua/zakaz/zakaz.php"
 <input type="hidden" name="utm_term"  value="<?= $_GET['utm_term'] ?>" />
 <input type="hidden" name="utm_content"  value="<?= $_GET['utm_content'] ?>" />
 <input type="hidden" name="utm_campaign" value="<?= $_GET['utm_campaign'] ?>" />
+<input type="hidden" name="server_name" value="<?= $_SERVER['SERVER_NAME'] ?>" />
 <!--======================= В тег <form></form> ====================-->
 
 <!--======================= Подключение maskedinput перед тегом </body> ====================-->
@@ -40,3 +41,7 @@ action="http://official1.in.ua/zakaz/zakaz.php"
   });
 </script>
 <!--======================= Подключение maskedinput перед тегом </body> ====================-->
+
+<!--======================= Контакты фирмы ====================-->
+ООО "Логос" г.Кривой Рог, ул. Владимира Великого 5, офис 9
+<!--======================= Контакты фирмы ====================-->
