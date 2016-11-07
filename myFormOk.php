@@ -14,17 +14,26 @@ $_SESSION['utms']['utm_medium'] = $_GET['utm_medium'];
 $_SESSION['utms']['utm_term'] = $_GET['utm_term'];
 $_SESSION['utms']['utm_content'] = $_GET['utm_content'];
 $_SESSION['utms']['utm_campaign'] = $_GET['utm_campaign'];
-	//*********************** Главная страница *************************
+$price_old = 0;
+$price_new = 0;
+$valuta = 'грн';
+$product_name = '';
+$product_id = 0;
+  //*********************** Главная страница *************************
 ?>
-
+<?= $price_old ?>
+<?= $price_new ?>
+<?= $valuta ?>
+<?= $product_name ?>
+<?= $product_id ?>
 <!--======================= Action в тег <form> отправка методом POST ====================-->
 action="http://official1.in.ua/zakaz/zakaz.php"
 <!--======================= Action в тег <form> отправка методом POST ====================-->
 
 <!--======================= В тег <form></form> ====================-->
-<input type="hidden" name="s1" class="price_field_s1" value="цена" />
-<input type="hidden" name="s2" class="price_field_s2" value="id" />
-<input type="hidden" name="s3" class="price_field_s3" value="название" />
+<input type="hidden" name="s1" class="price_field_s1" value="<?= $price_new ?>" />
+<input type="hidden" name="s2" class="price_field_s2" value="<?= $product_id ?>" />
+<input type="hidden" name="s3" class="price_field_s3" value="<?= $product_name ?>" />
 <input type="hidden" name="utm_source" value="<?= $_GET['utm_source'] ?>" />
 <input type="hidden" name="utm_medium"  value="<?= $_GET['utm_medium'] ?>" />
 <input type="hidden" name="utm_term"  value="<?= $_GET['utm_term'] ?>" />
@@ -46,7 +55,10 @@ action="http://official1.in.ua/zakaz/zakaz.php"
       }); 
       return true;
     });
-
+    $(window).scroll( function() {
+      yaCounterXXXXXX.reachGoal('SCROLL'); 
+      $(window).off("scroll");
+    });
   });
 </script>
 <!--======================= Подключение maskedinput перед тегом </body> ====================-->
