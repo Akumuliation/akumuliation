@@ -50,14 +50,13 @@ action="http://official1.in.ua/zakaz/zakaz.php"
     $(".phone").mask("+38 (0*9) 999-99-99");
 
     $("form").submit(function() {
-      yaCounterXXXXXX.reachGoal('ORDER', function () {
-        alert('Данные успешно отправлены');
-      }); 
+      yaCounterXXXXXX.reachGoal('ORDER'); 
       return true;
     });
     $(window).scroll( function() {
       yaCounterXXXXXX.reachGoal('SCROLL'); 
       $(window).off("scroll");
+      return true;
     });
   });
 </script>
