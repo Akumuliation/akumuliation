@@ -1,5 +1,5 @@
+<!--======================= Главная страница ====================-->
 <?php 
-	//*********************** Главная страница *************************
 session_start();
 if(!isset($_SESSION['utms'])) {
     $_SESSION['utms'] = array();
@@ -14,18 +14,38 @@ $_SESSION['utms']['utm_medium'] = $_GET['utm_medium'];
 $_SESSION['utms']['utm_term'] = $_GET['utm_term'];
 $_SESSION['utms']['utm_content'] = $_GET['utm_content'];
 $_SESSION['utms']['utm_campaign'] = $_GET['utm_campaign'];
-$price_old = 0;
-$price_new = 0;
-$valuta = 'грн';
-$product_name = '';
+
+
+$sale = 50;
 $product_id = 0;
-  //*********************** Главная страница *************************
+$product_name = '';
+$currency = 'грн';
+$marga = 0;
+
+$data = array(
+'key' => '098f6bcd4621d373cade4e832627b4f6', //Ваш секретный токен 
+'product_id' => $product_id // ID товара
+);
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, 'http://admin.lp-crm.biz/api/getProduct.html');
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+$out = curl_exec($curl);
+curl_close($curl);
+$jout = json_decode($out); 
+$price_new = floor($jout -> data[0] -> price) + $marga;
+$price_old = floor(($price_new / (100 - $sale)) * 100);
 ?>
+<!--======================= Главная страница ====================-->
+
+<?= $sale ?>
 <?= $price_old ?>
 <?= $price_new ?>
-<?= $valuta ?>
+<?= $currency ?>
 <?= $product_name ?>
 <?= $product_id ?>
+
 <!--======================= Action в тег <form> отправка методом POST ====================-->
 action="http://official1.in.ua/zakaz/zakaz.php"
 <!--======================= Action в тег <form> отправка методом POST ====================-->
