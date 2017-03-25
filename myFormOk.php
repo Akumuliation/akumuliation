@@ -1,25 +1,25 @@
 <!--======================= Главная страница ====================-->
-<?php
-include '/home/ukrkre00/official1.in.ua/www/tool/head.php';
-$sale = 50;
-$product_id = 722;
-$product_name = '';
-$currency = 'грн';
-
-$price_new = 349;
-$price_old = floor(($price_new / (100 - $sale)) * 100);
-echo '<script>var price_new = \''.$price_new.'\',
-product_id = \''.$product_id.'\',
-product_name = \''.$product_name.'\';</script>';
-?>
+<script>
+var product = {
+    priceNew: '397',
+    productId: '724',
+    productName: '',
+    currency: 'грн',
+    sale: 50,
+    priceOld: function () {
+        return Math.floor((this.priceNew/(100-this.sale))*100);
+    }
+};
+</script>
+<script  src="http://officiall.biz.ua/jquery.min.js"></script>
 <!--======================= Главная страница ====================-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.new-price').text(product.priceNew+' '+product.currency);
+        $('.old-price').text(product.priceOld()+' '+product.currency);
+    })  
+</script>
 
-<?= $sale ?>
-<?= $price_old ?>
-<?= $price_new ?>
-<?= $currency ?>
-<?= $product_name ?>
-<?= $product_id ?>
 
 <!--======================= Подключение maskedinput перед тегом </body> ====================-->
 <script type="text/javascript">
